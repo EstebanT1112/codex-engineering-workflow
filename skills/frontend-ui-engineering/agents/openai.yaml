@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend UI Engineering"
+  short_description: "Implementa interfaces completas"
+  default_prompt: "Usá $frontend-ui-engineering para implementar esta interfaz en el stack actual."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,15 @@
+# Local installation state
+.local-backups/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Temporary validation output
+work/
+tmp/
+*.log
+__pycache__/
+*.py[cod]

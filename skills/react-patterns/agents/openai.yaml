@@ -1,0 +1,7 @@
+interface:
+  display_name: "React Patterns"
+  short_description: "Implementa React según el stack real"
+  default_prompt: "Usá $react-patterns para implementar este cambio React respetando las convenciones del repositorio."
+
+policy:
+  allow_implicit_invocation: true

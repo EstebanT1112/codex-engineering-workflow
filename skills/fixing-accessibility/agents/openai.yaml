@@ -1,0 +1,7 @@
+interface:
+  display_name: "Fixing Accessibility"
+  short_description: "Repara accesibilidad web"
+  default_prompt: "Usá $fixing-accessibility para auditar y corregir esta experiencia web."
+
+policy:
+  allow_implicit_invocation: true

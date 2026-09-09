@@ -1,0 +1,7 @@
+interface:
+  display_name: "Contract First"
+  short_description: "Coordina contratos entre consumidores"
+  default_prompt: "Usá $contract-first para cerrar este contrato compartido antes de implementar."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Database Migrations"
+  short_description: "Diseña migraciones compatibles y verificables"
+  default_prompt: "Usá $database-migrations para preparar y verificar este cambio de esquema o datos."
+
+policy:
+  allow_implicit_invocation: true

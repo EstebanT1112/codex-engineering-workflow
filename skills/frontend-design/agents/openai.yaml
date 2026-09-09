@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend Design"
+  short_description: "Define una dirección visual"
+  default_prompt: "Usá $frontend-design para definir la dirección visual antes de implementar."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Backend Patterns"
+  short_description: "Implementa backends Node y Next.js"
+  default_prompt: "Usá $backend-patterns para implementar este cambio de backend respetando el repositorio."
+
+policy:
+  allow_implicit_invocation: true

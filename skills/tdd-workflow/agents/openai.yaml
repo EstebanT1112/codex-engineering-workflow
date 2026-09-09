@@ -1,0 +1,7 @@
+interface:
+  display_name: "TDD Workflow"
+  short_description: "Protege cambios con RED, GREEN y evidencia"
+  default_prompt: "Usá $tdd-workflow para implementar este cambio con una regresión significativa."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Systematic Debugging"
+  short_description: "Encuentra la causa antes de corregir"
+  default_prompt: "Usá $systematic-debugging para reproducir este problema, encontrar la causa y verificar la corrección."
+
+policy:
+  allow_implicit_invocation: true

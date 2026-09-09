@@ -1,0 +1,7 @@
+interface:
+  display_name: "Error Handling"
+  short_description: "Diseña errores, reintentos y fallos claros"
+  default_prompt: "Usá $error-handling para diseñar el manejo de errores de este cambio."
+
+policy:
+  allow_implicit_invocation: true

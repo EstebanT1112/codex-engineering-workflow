@@ -1,0 +1,7 @@
+interface:
+  display_name: "API Design"
+  short_description: "Diseña contratos REST coherentes"
+  default_prompt: "Usá $api-design para diseñar o revisar esta API REST."
+
+policy:
+  allow_implicit_invocation: true

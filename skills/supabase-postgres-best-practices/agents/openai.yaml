@@ -1,0 +1,7 @@
+interface:
+  display_name: "Supabase Postgres"
+  short_description: "Aplica prácticas actuales de Postgres"
+  default_prompt: "Usá $supabase-postgres-best-practices antes de cambiar este esquema o SQL."
+
+policy:
+  allow_implicit_invocation: true

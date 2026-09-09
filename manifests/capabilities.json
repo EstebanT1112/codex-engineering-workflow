@@ -1,0 +1,51 @@
+{
+  "schema_version": 3,
+  "bundled_core": [
+    "engineering-task-workflow",
+    "intent-driven-development",
+    "verification-before-completion",
+    "tdd-workflow",
+    "systematic-debugging",
+    "database-migrations",
+    "react-patterns",
+    "error-handling"
+  ],
+  "bundled_standard": [
+    "api-design",
+    "contract-first",
+    "backend-patterns",
+    "supabase-postgres-best-practices",
+    "frontend-ui-engineering",
+    "frontend-design",
+    "fixing-accessibility",
+    "react-testing",
+    "security-best-practices",
+    "brand",
+    "ui-ux-pro-max",
+    "react-native-patterns",
+    "shadcn"
+  ],
+  "system_provided": [
+    "imagegen"
+  ],
+  "optional_if_available": [
+    "make-interfaces-feel-better",
+    "react-performance",
+    "vite-patterns",
+    "accessibility",
+    "motion-ui",
+    "browser-qa",
+    "e2e-testing",
+    "click-path-audit",
+    "production-audit",
+    "architecture-decision-records",
+    "living-docs-governance",
+    "inherit-legacy-style",
+    "codebase-onboarding"
+  ],
+  "pending_adaptation": [],
+  "selection_policy": "Load only the smallest skill set justified by task intent, repository stack, current stage, and risk.",
+  "missing_optional_policy": "Continue with repository-native practices and report only a material capability limitation; never install silently.",
+  "system_capability_policy": "Do not duplicate a Codex system skill in the personal skills directory; verify availability at runtime and report a material limitation if absent.",
+  "catalog_manifest": "manifests/skill-catalog.json"
+}

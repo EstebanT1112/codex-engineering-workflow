@@ -1,0 +1,7 @@
+interface:
+  display_name: "React Testing"
+  short_description: "Prueba comportamiento React"
+  default_prompt: "Usá $react-testing para cubrir este comportamiento React con pruebas útiles."
+
+policy:
+  allow_implicit_invocation: true

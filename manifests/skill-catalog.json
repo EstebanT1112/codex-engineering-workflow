@@ -1,0 +1,617 @@
+{
+  "schema_version": 1,
+  "selection_order": [
+    "task_intent",
+    "current_stage",
+    "repository_stack",
+    "risk",
+    "capability_availability"
+  ],
+  "default_policy": "Select the smallest set that materially changes a decision or improves execution. Read a selected SKILL.md before applying it.",
+  "capabilities": [
+    {
+      "name": "engineering-task-workflow",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "ANALYZE",
+        "PLAN",
+        "IMPLEMENT",
+        "REVIEW",
+        "VERIFY",
+        "DELIVER"
+      ],
+      "trigger": "Any non-trivial repository engineering task.",
+      "guard": "Skip for simple questions or writing unrelated to a repository.",
+      "companions": []
+    },
+    {
+      "name": "intent-driven-development",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "ANALYZE",
+        "PLAN"
+      ],
+      "trigger": "Material ambiguity, high-impact product behavior, or acceptance criteria that cannot be inferred safely.",
+      "guard": "Do not add a discovery ceremony when the requested behavior and evidence are already clear.",
+      "companions": [
+        "engineering-task-workflow"
+      ]
+    },
+    {
+      "name": "verification-before-completion",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "VERIFY",
+        "DELIVER"
+      ],
+      "trigger": "Before any claim that repository work is complete, fixed, or passing.",
+      "guard": "Requires fresh evidence for the current files; implementation alone never satisfies it.",
+      "companions": [
+        "engineering-task-workflow"
+      ]
+    },
+    {
+      "name": "tdd-workflow",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "A behavior change, regression, or refactor where a focused automated test can fail meaningfully first.",
+      "guard": "Skip for documentation, generated artifacts, or tests that only mirror implementation.",
+      "companions": [
+        "engineering-task-workflow"
+      ]
+    },
+    {
+      "name": "systematic-debugging",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "ANALYZE",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "A reproducible bug, failing check, regression, or unexplained behavior.",
+      "guard": "This is the only general debugging workflow; use evidence and one falsifiable hypothesis at a time.",
+      "companions": [
+        "engineering-task-workflow"
+      ]
+    },
+    {
+      "name": "database-migrations",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "VERIFY",
+        "DELIVER"
+      ],
+      "trigger": "Any persistent schema or data migration.",
+      "guard": "Covers rollout, compatibility, backfill, rollback, and real database verification; it does not replace engine-specific design guidance.",
+      "companions": [
+        "supabase-postgres-best-practices"
+      ]
+    },
+    {
+      "name": "react-patterns",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "IMPLEMENT",
+        "REVIEW"
+      ],
+      "trigger": "React web component, hook, form, effect, state, or rendering-boundary work.",
+      "guard": "Do not use for React Native and do not assume a framework version before inspecting the repository.",
+      "companions": [
+        "react-testing"
+      ]
+    },
+    {
+      "name": "error-handling",
+      "availability": "BUNDLED_CORE",
+      "classification": "CORE",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "REVIEW"
+      ],
+      "trigger": "Typed errors, retry policy, failure contracts, circuit breakers, or safe user-facing failures.",
+      "guard": "Do not add retries or abstraction without evidence that the failure mode requires them.",
+      "companions": []
+    },
+    {
+      "name": "api-design",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "STANDARD",
+      "stages": [
+        "PLAN",
+        "REVIEW"
+      ],
+      "trigger": "REST resource naming, methods, status codes, pagination, filtering, errors, or versioning.",
+      "guard": "Governs HTTP semantics, not the backend's internal architecture.",
+      "companions": [
+        "contract-first",
+        "backend-patterns"
+      ]
+    },
+    {
+      "name": "contract-first",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "STANDARD",
+      "stages": [
+        "ANALYZE",
+        "PLAN",
+        "VERIFY"
+      ],
+      "trigger": "A boundary shared by independently evolving consumers and providers, or a breaking API/event change.",
+      "guard": "A private boundary changed atomically in one module usually needs only local types.",
+      "companions": [
+        "api-design"
+      ]
+    },
+    {
+      "name": "backend-patterns",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "REVIEW"
+      ],
+      "trigger": "Node.js, Express, or Next.js server routes and data-access structure.",
+      "guard": "Activate only after confirming one of its supported backend stacks.",
+      "companions": [
+        "api-design",
+        "error-handling"
+      ]
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "REVIEW",
+        "VERIFY"
+      ],
+      "trigger": "PostgreSQL schema, SQL, RLS, indexing, functions, triggers, connections, locks, or query performance.",
+      "guard": "Use for PostgreSQL anywhere; pair with database-migrations when persistent schema or data changes are involved.",
+      "companions": [
+        "database-migrations",
+        "security-best-practices"
+      ]
+    },
+    {
+      "name": "frontend-ui-engineering",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "STANDARD",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "REVIEW",
+        "VERIFY"
+      ],
+      "trigger": "Production user-interface implementation with responsive states, interaction, forms, feedback, or integration.",
+      "guard": "Requires the actual frontend stack and existing design system; it does not define a new visual identity by itself.",
+      "companions": []
+    },
+    {
+      "name": "frontend-design",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE",
+        "PLAN",
+        "REVIEW"
+      ],
+      "trigger": "A new interface or substantial redesign needs visual direction, hierarchy, typography, color, or interaction character.",
+      "guard": "Do not load for routine component edits or narrow polish.",
+      "companions": [
+        "frontend-ui-engineering",
+        "brand"
+      ]
+    },
+    {
+      "name": "fixing-accessibility",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "STANDARD",
+      "stages": [
+        "ANALYZE",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "Explicit web accessibility work or a material web interaction involving focus, keyboard, forms, dialogs, semantics, or status feedback.",
+      "guard": "Web-only; use the optional native accessibility capability for React Native, iOS, or Android.",
+      "companions": [
+        "frontend-ui-engineering"
+      ]
+    },
+    {
+      "name": "react-testing",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "Tests for React web components, hooks, pages, or user-visible component behavior.",
+      "guard": "Use the repository's configured runner and libraries; do not install a test stack just because this skill exists.",
+      "companions": [
+        "react-patterns",
+        "tdd-workflow"
+      ]
+    },
+    {
+      "name": "security-best-practices",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "PLAN",
+        "REVIEW",
+        "VERIFY"
+      ],
+      "trigger": "An explicit security review, security report, or secure-by-default implementation in supported Python, JavaScript/TypeScript, or Go stacks.",
+      "guard": "Do not stack with redundant generic security reviews; HIGH or CRITICAL work still receives the main workflow's adversarial self-review.",
+      "companions": [
+        "engineering-task-workflow"
+      ]
+    },
+    {
+      "name": "brand",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE",
+        "PLAN",
+        "REVIEW"
+      ],
+      "trigger": "Brand voice, positioning, naming, identity consistency, or brand assets are explicit requirements.",
+      "guard": "Do not invent or replace brand policy without authoritative material or an explicit redesign request.",
+      "companions": [
+        "frontend-design",
+        "imagegen"
+      ]
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE",
+        "PLAN",
+        "REVIEW"
+      ],
+      "trigger": "A substantial experience needs journey design, information architecture, interaction strategy, or broad UX critique.",
+      "guard": "Do not load for a narrow styling fix; prefer one focused frontend skill when sufficient.",
+      "companions": [
+        "frontend-design",
+        "frontend-ui-engineering"
+      ]
+    },
+    {
+      "name": "react-native-patterns",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "REVIEW",
+        "VERIFY"
+      ],
+      "trigger": "React Native or Expo screens, navigation, state, native APIs, lists, or platform behavior.",
+      "guard": "Do not apply React DOM assumptions or presume Expo Router and named libraries without repository evidence.",
+      "companions": [
+        "accessibility"
+      ]
+    },
+    {
+      "name": "shadcn",
+      "availability": "BUNDLED_STANDARD",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "IMPLEMENT",
+        "REVIEW",
+        "VERIFY"
+      ],
+      "trigger": "The repository has shadcn evidence such as components.json or the user explicitly requests shadcn/ui.",
+      "guard": "Do not activate for generic React or Tailwind work and never run an @latest installer automatically.",
+      "companions": [
+        "frontend-ui-engineering",
+        "react-patterns"
+      ]
+    },
+    {
+      "name": "imagegen",
+      "availability": "SYSTEM_PROVIDED",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "IMPLEMENT",
+        "REVIEW"
+      ],
+      "trigger": "A raster image, illustration, texture, mockup, or image edit is explicitly requested or required by an accepted design.",
+      "guard": "Generate the asset only; Codex remains responsible for review, repository integration, and fresh verification.",
+      "companions": [
+        "brand",
+        "frontend-design"
+      ]
+    },
+    {
+      "name": "make-interfaces-feel-better",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "REVIEW",
+        "IMPLEMENT"
+      ],
+      "trigger": "An existing interface needs bounded polish to spacing, typography, borders, shadows, hit areas, or interaction states.",
+      "guard": "Use only if installed; do not turn a narrow polish task into a redesign.",
+      "companions": []
+    },
+    {
+      "name": "react-performance",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "A measured React or Next.js performance problem involving waterfalls, bundles, rendering, or rerenders.",
+      "guard": "Use only with performance evidence or an explicit performance requirement; measure again after changes.",
+      "companions": [
+        "react-patterns"
+      ]
+    },
+    {
+      "name": "vite-patterns",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "ANALYZE",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "Vite configuration, plugins, HMR, environment variables, SSR, library mode, or build behavior.",
+      "guard": "Use only if installed and after detecting the repository's actual Vite version.",
+      "companions": []
+    },
+    {
+      "name": "accessibility",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "ANALYZE",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "Native or cross-platform accessibility for React Native, iOS, or Android.",
+      "guard": "Use only if installed; do not substitute the web-focused accessibility workflow.",
+      "companions": [
+        "react-native-patterns"
+      ]
+    },
+    {
+      "name": "motion-ui",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "Motion is explicitly requested or the project already has a motion system that the change must follow.",
+      "guard": "Use only if installed; preserve reduced motion and avoid decorative animation without purpose.",
+      "companions": []
+    },
+    {
+      "name": "browser-qa",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "VERIFY"
+      ],
+      "trigger": "A significant UI change has a runnable browser preview requiring bounded interaction, responsive, console, network, or visual checks.",
+      "guard": "Use only if installed and a runnable preview is available; report unavailable browser evidence honestly.",
+      "companions": [
+        "frontend-ui-engineering"
+      ]
+    },
+    {
+      "name": "e2e-testing",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "PROJECT_SPECIFIC",
+      "stages": [
+        "PLAN",
+        "IMPLEMENT",
+        "VERIFY"
+      ],
+      "trigger": "A critical user journey needs an end-to-end regression and the repository already has an E2E framework.",
+      "guard": "Use only if installed; do not add an E2E framework for a change better covered at a lower level.",
+      "companions": []
+    },
+    {
+      "name": "click-path-audit",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE",
+        "REVIEW"
+      ],
+      "trigger": "A UI action races, reverts, duplicates, or disappears across handlers, stores, effects, persistence, or navigation.",
+      "guard": "Use only if installed and after systematic reproduction; this is a specialized trace, not a second general debugger.",
+      "companions": [
+        "systematic-debugging"
+      ]
+    },
+    {
+      "name": "production-audit",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "REVIEW",
+        "VERIFY",
+        "DELIVER"
+      ],
+      "trigger": "A real release or production-readiness decision requires operational, security, data, rollback, and journey evidence.",
+      "guard": "Use only if installed and for a real target; ordinary implementation does not need a production audit.",
+      "companions": []
+    },
+    {
+      "name": "architecture-decision-records",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "PLAN",
+        "DELIVER"
+      ],
+      "trigger": "A consequential architecture decision is difficult to reverse or affects several components.",
+      "guard": "Use only if installed; do not create ADRs for routine implementation choices.",
+      "companions": []
+    },
+    {
+      "name": "living-docs-governance",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE",
+        "PLAN"
+      ],
+      "trigger": "A long-lived repository has demonstrated documentation drift or unclear canonical documents.",
+      "guard": "Use only if installed; do not introduce documentation governance for a one-off task.",
+      "companions": []
+    },
+    {
+      "name": "inherit-legacy-style",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE",
+        "IMPLEMENT",
+        "REVIEW"
+      ],
+      "trigger": "An explicitly legacy, hand-written codebase has unclear conventions or observed style drift.",
+      "guard": "Use only if installed and from representative local evidence; never create global memory from it.",
+      "companions": []
+    },
+    {
+      "name": "codebase-onboarding",
+      "availability": "OPTIONAL_IF_AVAILABLE",
+      "classification": "ON_DEMAND",
+      "stages": [
+        "ANALYZE"
+      ],
+      "trigger": "The repository is unfamiliar and its entry points, boundaries, commands, or common change paths are unclear.",
+      "guard": "Use only if installed; ordinary targeted project discovery remains mandatory and usually sufficient.",
+      "companions": []
+    }
+  ],
+  "overlap_rules": [
+    {
+      "id": "debugging",
+      "rule": "Use systematic-debugging as the sole general debugging workflow. Add click-path-audit only for a reproduced UI state-flow problem."
+    },
+    {
+      "id": "verification",
+      "rule": "Use repository checks during work and verification-before-completion as the final evidence gate. Production-audit is reserved for a real release decision."
+    },
+    {
+      "id": "postgres",
+      "rule": "database-migrations governs change lifecycle; supabase-postgres-best-practices governs PostgreSQL design and SQL. Use both for PostgreSQL migrations."
+    },
+    {
+      "id": "api",
+      "rule": "api-design governs HTTP semantics, contract-first governs independently evolving boundaries, and backend-patterns governs supported server implementation."
+    },
+    {
+      "id": "frontend",
+      "rule": "ui-ux-pro-max covers broad journeys, frontend-design covers visual direction, frontend-ui-engineering implements, framework skills refine stack behavior, and browser-qa verifies."
+    },
+    {
+      "id": "accessibility",
+      "rule": "fixing-accessibility is for web; accessibility is optional and native. Select by platform rather than loading both."
+    },
+    {
+      "id": "security",
+      "rule": "Use security-best-practices as the specialist review when its trigger matches. Do not stack redundant generic security skills; HIGH and CRITICAL work gets one fresh adversarial self-review."
+    },
+    {
+      "id": "assets",
+      "rule": "brand defines identity constraints, frontend-design applies visual direction, imagegen creates raster assets, and Codex integrates and verifies them."
+    }
+  ],
+  "excluded_routes": [
+    {
+      "name": "verification-loop",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "delivery-gate",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "context-budget",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "strategic-compact",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "debugging-strategies",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "coding-standards",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "postgres-patterns",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "security-review",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "security-scan",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "frontend-patterns",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "baseline-ui",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "ui-styling",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "frontend-design-direction",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "design",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "banner-design",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    },
+    {
+      "name": "product-lens",
+      "reason": "Excluded from automatic routing; presence on disk does not authorize selection."
+    }
+  ]
+}

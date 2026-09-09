@@ -1,0 +1,75 @@
+name: Validate distribution
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Windows validation
+    runs-on: windows-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Validate public payload
+        shell: pwsh
+        run: ./scripts/Test-PublicDistribution.ps1 -PackageRoot .
+
+      - name: Validate public payload on Windows PowerShell 5.1
+        shell: powershell
+        run: ./scripts/Test-PublicDistribution.ps1 -PackageRoot .
+
+      - name: Validate routing catalog on Windows PowerShell 5.1
+        shell: powershell
+        run: ./scripts/Test-RoutingCatalog.ps1 -PackageRoot .
+
+      - name: Validate routing catalog on PowerShell 7
+        shell: pwsh
+        run: ./scripts/Test-RoutingCatalog.ps1 -PackageRoot .
+
+      - name: Validate provenance and deterministic lock on Windows PowerShell 5.1
+        shell: powershell
+        run: ./scripts/Test-Provenance.ps1 -PackageRoot .
+
+      - name: Validate provenance and deterministic lock on PowerShell 7
+        shell: pwsh
+        run: ./scripts/Test-Provenance.ps1 -PackageRoot .
+
+      - name: Validate public community files on Windows PowerShell 5.1
+        shell: powershell
+        run: ./scripts/Test-CommunityFiles.ps1 -PackageRoot .
+
+      - name: Validate public community files on PowerShell 7
+        shell: pwsh
+        run: ./scripts/Test-CommunityFiles.ps1 -PackageRoot .
+
+      - name: Verify end-to-end example on Windows PowerShell 5.1
+        shell: powershell
+        run: ./scripts/Test-EndToEndExample.ps1 -PackageRoot .
+
+      - name: Verify end-to-end example on PowerShell 7
+        shell: pwsh
+        run: ./scripts/Test-EndToEndExample.ps1 -PackageRoot .
+
+      - name: Test install and rollback on Windows PowerShell 5.1
+        shell: powershell
+        run: ./scripts/Test-InstallationLifecycle.ps1 -PackageRoot . -WorkRoot (Join-Path $env:RUNNER_TEMP 'windows-powershell')
+
+      - name: Test install and rollback on PowerShell 7
+        shell: pwsh
+        run: ./scripts/Test-InstallationLifecycle.ps1 -PackageRoot . -WorkRoot (Join-Path $env:RUNNER_TEMP 'powershell-7')

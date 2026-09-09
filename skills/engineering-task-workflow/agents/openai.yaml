@@ -1,0 +1,7 @@
+interface:
+  display_name: "Engineering Task Workflow"
+  short_description: "Implementa cambios con revisión y evidencia"
+  default_prompt: "Usá $engineering-task-workflow para resolver esta tarea de ingeniería de principio a fin."
+
+policy:
+  allow_implicit_invocation: true

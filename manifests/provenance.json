@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "distribution": {
+    "name": "codex-engineering-workflow",
+    "version": "0.2.0",
+    "created_at": "2026-09-04",
+    "publication_status": "RELEASE_CANDIDATE_CI_PENDING",
+    "license": "MIT",
+    "license_file": "LICENSE",
+    "copyright": "Copyright (c) 2026 Codex Engineering Workflow contributors"
+  },
+  "notice_file": "THIRD_PARTY_NOTICES.md",
+  "sources": [
+    {
+      "id": "ecc",
+      "repository": "affaan-m/ECC",
+      "commit_or_ref": "11813f968cc0087b2793470a4082b754688bf168",
+      "license": "MIT",
+      "license_file": "LICENSES/ECC-MIT.txt",
+      "copyright": "Copyright (c) 2026 Affaan Mustafa",
+      "license_url": "https://github.com/affaan-m/ECC/blob/11813f968cc0087b2793470a4082b754688bf168/LICENSE"
+    },
+    {
+      "id": "superpowers",
+      "repository": "obra/superpowers",
+      "commit_or_ref": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+      "license": "MIT",
+      "license_file": "LICENSES/SUPERPOWERS-MIT.txt",
+      "copyright": "Copyright (c) 2025 Jesse Vincent",
+      "license_url": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/LICENSE"
+    },
+    {
+      "id": "supabase-agent-skills",
+      "repository": "supabase/agent-skills",
+      "commit_or_ref": "8331f910845103c08d51f6ca1d86ebb7d1f745e3",
+      "license": "MIT",
+      "license_file": "LICENSES/SUPABASE-MIT.txt",
+      "copyright": "Copyright (c) 2026 Supabase",
+      "license_url": "https://github.com/supabase/agent-skills/blob/8331f910845103c08d51f6ca1d86ebb7d1f745e3/LICENSE"
+    },
+    {
+      "id": "openai-skills",
+      "repository": "openai/skills",
+      "commit_or_ref": "49f948faa9258a0c61caceaf225e179651397431",
+      "license": "Apache-2.0",
+      "license_file": "LICENSES/OPENAI-SECURITY-APACHE-2.0.txt",
+      "copyright": null,
+      "license_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-best-practices/LICENSE.txt"
+    }
+  ],
+  "skills": [
+    {
+      "name": "api-design",
+      "kind": "reviewed_copy",
+      "source_id": "ecc",
+      "upstream_path": "skills/api-design/SKILL.md"
+    },
+    {
+      "name": "backend-patterns",
+      "kind": "reviewed_copy",
+      "source_id": "ecc",
+      "upstream_path": "skills/backend-patterns/SKILL.md"
+    },
+    {
+      "name": "brand",
+      "kind": "original",
+      "source_id": "project",
+      "upstream_path": null
+    },
+    {
+      "name": "contract-first",
+      "kind": "reviewed_copy",
+      "source_id": "ecc",
+      "upstream_path": "skills/contract-first/SKILL.md"
+    },
+    {
+      "name": "database-migrations",
+      "kind": "adapted",
+      "source_id": "ecc",
+      "upstream_path": "skills/database-migrations/SKILL.md"
+    },
+    {
+      "name": "engineering-task-workflow",
+      "kind": "original",
+      "source_id": "project",
+      "upstream_path": null
+    },
+    {
+      "name": "error-handling",
+      "kind": "reviewed_copy",
+      "source_id": "ecc",
+      "upstream_path": "skills/error-handling/SKILL.md"
+    },
+    {
+      "name": "fixing-accessibility",
+      "kind": "original",
+      "source_id": "project",
+      "upstream_path": null
+    },
+    {
+      "name": "frontend-design",
+      "kind": "original_adaptation",
+      "source_id": "project",
+      "upstream_path": null
+    },
+    {
+      "name": "frontend-ui-engineering",
+      "kind": "original",
+      "source_id": "project",
+      "upstream_path": null
+    },
+    {
+      "name": "intent-driven-development",
+      "kind": "reviewed_copy",
+      "source_id": "ecc",
+      "upstream_path": "skills/intent-driven-development/SKILL.md"
+    },
+    {
+      "name": "react-native-patterns",
+      "kind": "adapted",
+      "source_id": "ecc",
+      "upstream_path": "skills/react-native-patterns/SKILL.md"
+    },
+    {
+      "name": "react-patterns",
+      "kind": "adapted",
+      "source_id": "ecc",
+      "upstream_path": "skills/react-patterns/SKILL.md"
+    },
+    {
+      "name": "react-testing",
+      "kind": "adapted",
+      "source_id": "ecc",
+      "upstream_path": "skills/react-testing/SKILL.md"
+    },
+    {
+      "name": "security-best-practices",
+      "kind": "adapted",
+      "source_id": "openai-skills",
+      "upstream_path": "skills/.curated/security-best-practices"
+    },
+    {
+      "name": "shadcn",
+      "kind": "original_adaptation",
+      "source_id": "project",
+      "upstream_path": null
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "kind": "reviewed_copy",
+      "source_id": "supabase-agent-skills",
+      "upstream_path": "skills/supabase-postgres-best-practices"
+    },
+    {
+      "name": "systematic-debugging",
+      "kind": "adapted",
+      "source_id": "superpowers",
+      "upstream_path": "skills/systematic-debugging/SKILL.md"
+    },
+    {
+      "name": "tdd-workflow",
+      "kind": "adapted",
+      "source_id": "ecc",
+      "upstream_path": "skills/tdd-workflow/SKILL.md"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "kind": "original_adaptation",
+      "source_id": "project",
+      "upstream_path": null
+    },
+    {
+      "name": "verification-before-completion",
+      "kind": "reviewed_copy",
+      "source_id": "superpowers",
+      "upstream_path": "skills/verification-before-completion/SKILL.md"
+    }
+  ],
+  "system_capabilities": [
+    {
+      "name": "imagegen",
+      "source_id": "codex-desktop-system",
+      "redistributed": false
+    }
+  ]
+}

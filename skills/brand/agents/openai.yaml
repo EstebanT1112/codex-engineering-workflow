@@ -1,0 +1,7 @@
+interface:
+  display_name: "Brand"
+  short_description: "Aplica identidad y voz de marca"
+  default_prompt: "Usá $brand para resolver esta necesidad explícita de marca."
+
+policy:
+  allow_implicit_invocation: false

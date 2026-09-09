@@ -1,0 +1,7 @@
+interface:
+  display_name: "React Native Patterns"
+  short_description: "Implementa React Native y Expo"
+  default_prompt: "Usá $react-native-patterns para resolver este cambio móvil según el stack real."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "UI UX Product Review"
+  short_description: "Revisa experiencias de alto impacto"
+  default_prompt: "Usá $ui-ux-pro-max para analizar y concretar esta experiencia significativa."
+
+policy:
+  allow_implicit_invocation: false

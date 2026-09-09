@@ -1,0 +1,7 @@
+interface:
+  display_name: "shadcn"
+  short_description: "Trabaja con componentes shadcn"
+  default_prompt: "Usá $shadcn para implementar este cambio en el proyecto shadcn existente."
+
+policy:
+  allow_implicit_invocation: true
