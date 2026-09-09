@@ -18,7 +18,8 @@
     "provenance": "manifests/provenance.json",
     "capabilities": "manifests/capabilities.json",
     "routing_catalog": "manifests/skill-catalog.json",
-    "changelog": "CHANGELOG.md"
+    "changelog": "CHANGELOG.md",
+    "release_notes": "docs/RELEASE_NOTES_0.2.0.md"
   },
   "contents": {
     "bundled_skills": 21,

@@ -25,11 +25,13 @@
 - Editor and Git text rules preserve UTF-8 and LF endings, including PowerShell scripts covered by the distribution lock.
 - A dependency-free Python feature records routing, RED/GREEN evidence, diff review, and reproducible deterministic verification.
 - Release `0.2.0` has a machine-readable manifest and a dated changelog section.
+- The first GitHub-hosted validation passed for release-ready metadata commit `a959ae1`.
+- GitHub release notes for version `0.2.0` are prepared in `docs/RELEASE_NOTES_0.2.0.md`.
 
 ## Required before publishing
 
-- Push the repository and obtain the first passing GitHub-hosted CI run.
-- Review repository name, description, topics, and final GitHub release notes.
+- Confirm that the exact commit tagged `v0.2.0` has a passing GitHub-hosted validation.
+- Review repository description, topics, and final GitHub release notes.
 
 ## Optional after the first release
 

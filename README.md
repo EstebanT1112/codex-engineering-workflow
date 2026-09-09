@@ -247,6 +247,8 @@ Security depends on the combination of instructions, skill scope, Codex permissi
 
 See [PUBLICATION_CHECKLIST.md](docs/PUBLICATION_CHECKLIST.md). Do not publish a release until the first GitHub-hosted CI run and the first end-to-end example are complete.
 
+Release notes for version `0.2.0` are available in [RELEASE_NOTES_0.2.0.md](docs/RELEASE_NOTES_0.2.0.md).
+
 ## Contributing and support
 
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a change.
