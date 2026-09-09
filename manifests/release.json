@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "tag": "v0.2.0",
   "release_date": "2026-09-09",
-  "status": "RELEASE_CANDIDATE",
+  "status": "RELEASE_READY",
   "runtime": "Codex Desktop",
   "supported_platforms": [
     "Windows"

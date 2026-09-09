@@ -4,7 +4,7 @@
     "name": "codex-engineering-workflow",
     "version": "0.2.0",
     "created_at": "2026-09-04",
-    "publication_status": "RELEASE_CANDIDATE_CI_PENDING",
+    "publication_status": "RELEASE_READY",
     "license": "MIT",
     "license_file": "LICENSE",
     "copyright": "Copyright (c) 2026 Codex Engineering Workflow contributors"

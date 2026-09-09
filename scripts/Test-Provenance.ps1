@@ -43,8 +43,8 @@ Add-Check 'release_metadata_consistent' (
     $release.version -eq $lock.distribution_version -and
     $release.tag -eq ('v' + $release.version) -and
     $release.release_date -match '^\d{4}-\d{2}-\d{2}$' -and
-    $release.status -eq 'RELEASE_CANDIDATE' -and
-    $lock.publication_status -eq 'RELEASE_CANDIDATE_CI_PENDING' -and
+    $release.status -eq 'RELEASE_READY' -and
+    $lock.publication_status -eq 'RELEASE_READY' -and
     $release.contents.bundled_skills -eq 21 -and
     $release.contents.system_capabilities -eq 1 -and
     $release.contents.optional_capabilities -eq 13
