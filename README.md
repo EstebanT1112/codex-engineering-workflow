@@ -109,6 +109,8 @@ Open a new Codex Desktop task after installation so Codex refreshes its skill ca
 
 ## Use
 
+For a structured starting point, copy [TASK_REQUEST.template.md](templates/TASK_REQUEST.template.md). It includes a short request for normal work, a detailed request for complex or risky changes, and complete feature and bug examples. Users describe the desired outcome and evidence; Codex selects relevant skills after inspecting the repository.
+
 Ordinary use does not require a special command:
 
 ```text

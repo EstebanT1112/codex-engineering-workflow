@@ -10,6 +10,7 @@ Version 0.2.0 is the first public release of Codex Engineering Workflow, a skill
 - Conflict-safe installation and tamper-safe rollback for Windows PowerShell 5.1 and PowerShell 7.
 - Pinned provenance, separate upstream licenses, deterministic SHA-256 payload locking, and credential and privacy scans.
 - A reproducible Python feature example showing minimal routing, a RED/GREEN cycle, diff review, and deterministic verification.
+- A reusable task-request template with short and detailed formats plus feature and bug examples.
 
 ## Install
 
@@ -42,4 +43,3 @@ The release commit must pass `.github/workflows/validate.yml`. The workflow vali
 ## License and attribution
 
 Project code is MIT licensed. Redistributed upstream material retains its original license and attribution as documented in `THIRD_PARTY_NOTICES.md`, `LICENSES/`, and `manifests/provenance.json`.
-

@@ -27,6 +27,7 @@
 - Release `0.2.0` has a machine-readable manifest and a dated changelog section.
 - The first GitHub-hosted validation passed for release-ready metadata commit `a959ae1`.
 - GitHub release notes for version `0.2.0` are prepared in `docs/RELEASE_NOTES_0.2.0.md`.
+- A reusable request template explains how to give Codex objectives, acceptance criteria, constraints, verification needs, and approval boundaries.
 
 ## Required before publishing
 

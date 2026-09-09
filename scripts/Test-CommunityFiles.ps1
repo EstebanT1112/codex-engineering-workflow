@@ -24,6 +24,7 @@ $paths = @(
     'docs/END_TO_END_EXAMPLE.md',
     'docs/RELEASE_NOTES_0.2.0.md',
     'manifests/release.json',
+    'templates/TASK_REQUEST.template.md',
     '.editorconfig', '.gitattributes', '.github/PULL_REQUEST_TEMPLATE.md',
     '.github/ISSUE_TEMPLATE/bug_report.yml', '.github/ISSUE_TEMPLATE/feature_request.yml',
     '.github/ISSUE_TEMPLATE/config.yml'
@@ -58,6 +59,7 @@ $conduct = [System.IO.File]::ReadAllText((Join-Path $package 'CODE_OF_CONDUCT.md
 $changelog = [System.IO.File]::ReadAllText((Join-Path $package 'CHANGELOG.md'))
 $endToEnd = [System.IO.File]::ReadAllText((Join-Path $package 'docs/END_TO_END_EXAMPLE.md'))
 $releaseNotes = [System.IO.File]::ReadAllText((Join-Path $package 'docs/RELEASE_NOTES_0.2.0.md'))
+$taskTemplate = [System.IO.File]::ReadAllText((Join-Path $package 'templates/TASK_REQUEST.template.md'))
 Add-Check 'contribution_workflow_is_actionable' ($contributing.Contains('Test-InstallationLifecycle.ps1') -and $contributing.Contains('manifests/provenance.json')) 'Contribution guide lacks validation or provenance instructions.'
 Add-Check 'security_reporting_is_private' ($security.Contains('private vulnerability reporting') -and $security.Contains('Do not open a public issue')) 'Security policy does not provide a private-reporting boundary.'
 Add-Check 'conduct_enforcement_defined' ($conduct.Contains('## Reporting and enforcement') -and $conduct.Contains('Maintainers may')) 'Code of conduct lacks reporting or enforcement.'
@@ -65,6 +67,7 @@ Add-Check 'changelog_has_unreleased_section' ($changelog.Contains('## Unreleased
 Add-Check 'changelog_has_current_release' ($changelog.Contains('## [0.2.0] - 2026-09-09')) 'Changelog lacks the dated 0.2.0 release section.'
 Add-Check 'end_to_end_example_is_reproducible' ($endToEnd.Contains('Test-EndToEndExample.ps1') -and $endToEnd.Contains('TypeError: list_orders()') -and $endToEnd.Contains('tests_passed: 4')) 'End-to-end documentation lacks routing, RED, or reproducible verification evidence.'
 Add-Check 'release_notes_are_actionable' ($releaseNotes.Contains('# Codex Engineering Workflow v0.2.0') -and $releaseNotes.Contains('Install-CodexDesktopWorkflow.ps1 -DryRun') -and $releaseNotes.Contains('## Requirements and scope') -and $releaseNotes.Contains('## License and attribution')) 'Release notes lack version, installation, scope, or attribution.'
+Add-Check 'task_request_template_is_actionable' ($taskTemplate.Contains('## Short request') -and $taskTemplate.Contains('## Detailed request') -and $taskTemplate.Contains('## Acceptance criteria') -and $taskTemplate.Contains('## Verification') -and $taskTemplate.Contains('## Feature example') -and $taskTemplate.Contains('## Bug example') -and $taskTemplate.Contains('Never include passwords')) 'Task request template lacks required guidance, examples, or credential boundary.'
 
 $editorConfig = [System.IO.File]::ReadAllText((Join-Path $package '.editorconfig'))
 $attributes = [System.IO.File]::ReadAllText((Join-Path $package '.gitattributes'))

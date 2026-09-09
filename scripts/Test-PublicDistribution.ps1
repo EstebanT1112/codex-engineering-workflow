@@ -76,6 +76,7 @@ $requiredPaths = @(
     'manifests/release.json',
     'manifests/skill-catalog.json',
     'docs/SKILL_CATALOG.md',
+    'templates/TASK_REQUEST.template.md',
     'scripts/Test-RoutingCatalog.ps1',
     'scripts/Test-Provenance.ps1',
     'scripts/Test-CommunityFiles.ps1',

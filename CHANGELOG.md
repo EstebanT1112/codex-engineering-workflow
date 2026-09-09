@@ -20,6 +20,7 @@ This file records user-visible changes to Codex Engineering Workflow.
 - Separate third-party license files and deterministic SHA-256 lock regeneration.
 - Windows CI for PowerShell 7 and Windows PowerShell 5.1.
 - A reproducible end-to-end Python feature with routing, RED/GREEN, review, and verification evidence.
+- A reusable task-request template with short, detailed, feature, and bug formats.
 
 ### Security
 
