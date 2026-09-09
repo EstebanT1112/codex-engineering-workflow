@@ -1,3 +1,5 @@
+> **Modification notice:** Modified from `openai/skills@49f948faa9258a0c61caceaf225e179651397431`; trailing whitespace was normalized for this distribution. Licensed under Apache-2.0; see `../LICENSE.txt`.
+
 # Frontend JavaScript/TypeScript Web Security Spec (Vanilla Browser JS/TS, Modern Browsers)
 
 This document is designed as a **security spec** that supports:

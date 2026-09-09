@@ -1,9 +1,15 @@
 ---
 name: "security-best-practices"
 description: "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks."
+license: Apache-2.0
+metadata:
+  origin: "Adapted from openai/skills@49f948faa9258a0c61caceaf225e179651397431"
+  modified: true
 ---
 
 # Security Best Practices
+
+> Modified from the pinned OpenAI skill for integration with Codex Engineering Workflow. The workflow and completion behavior were adapted; see `LICENSE.txt` and the repository's `THIRD_PARTY_NOTICES.md`.
 
 ## Overview
 

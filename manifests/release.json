@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "name": "codex-engineering-workflow",
-  "version": "0.2.0",
-  "tag": "v0.2.0",
+  "version": "0.2.1",
+  "tag": "v0.2.1",
   "release_date": "2026-09-09",
   "status": "RELEASE_READY",
   "runtime": "Codex Desktop",
@@ -19,7 +19,7 @@
     "capabilities": "manifests/capabilities.json",
     "routing_catalog": "manifests/skill-catalog.json",
     "changelog": "CHANGELOG.md",
-    "release_notes": "docs/RELEASE_NOTES_0.2.0.md",
+    "release_notes": "docs/RELEASE_NOTES_0.2.1.md",
     "task_request_template": "templates/TASK_REQUEST.template.md"
   },
   "contents": {
@@ -44,6 +44,7 @@
     "Twenty-one bundled engineering skills with deterministic routing and provenance metadata.",
     "Conflict-safe installation and tamper-safe rollback on Windows PowerShell 5.1 and PowerShell 7.",
     "A reproducible end-to-end feature example with RED/GREEN and verification evidence.",
-    "A reusable request template for describing outcomes, acceptance criteria, constraints, and verification."
+    "A reusable request template for describing outcomes, acceptance criteria, constraints, and verification.",
+    "A new-user guide plus explicit MIT, Apache-2.0, trademark, and contribution disclosures."
   ]
 }

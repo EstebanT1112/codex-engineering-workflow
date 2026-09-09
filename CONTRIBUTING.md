@@ -44,3 +44,9 @@ Describe the concrete problem and resulting behavior. Include:
 - any check that was skipped or unavailable.
 
 Do not claim a release, deployment, or production-readiness result without evidence for that exact target.
+
+## Contribution license
+
+By submitting a contribution, you agree to license your contribution under the MIT License used by this project. Changes to third-party material remain subject to the applicable upstream license and must preserve its required copyright, attribution, modification, and notice terms.
+
+Only submit material that you have the right to contribute. If a contribution copies or adapts external material, disclose the source and license in the pull request and update the repository's provenance records.

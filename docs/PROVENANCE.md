@@ -29,6 +29,10 @@ The distribution treats skills as versioned dependencies and never auto-updates 
 
 The optional capabilities in `manifests/capabilities.json` are not redistributed. Their installation and licenses remain independent. Updating any pinned source requires a fresh review, license check, lock regeneration, and distribution verification.
 
+## Apache-2.0 modifications
+
+The `security-best-practices` skill is redistributed under Apache-2.0. Its modified files are listed in `manifests/provenance.json` and carry an explicit notice identifying the pinned OpenAI source. `SKILL.md` contains workflow adaptations; four reference files differ only because trailing whitespace was normalized. The remaining files are content-identical to the pinned source after line-ending normalization.
+
 ## License files
 
 The project license is stored at `LICENSE`. Canonical local copies for redistributed third-party material are stored under `LICENSES/` and referenced by `manifests/provenance.json`:

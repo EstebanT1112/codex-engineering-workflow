@@ -18,6 +18,8 @@ $lock = Get-Content -LiteralPath $lockPath -Raw -Encoding UTF8 | ConvertFrom-Jso
 $release = Get-Content -LiteralPath (Join-Path $package 'manifests\release.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $notices = [System.IO.File]::ReadAllText((Join-Path $package 'THIRD_PARTY_NOTICES.md'))
 $documentation = [System.IO.File]::ReadAllText((Join-Path $package 'docs\PROVENANCE.md'))
+$readme = [System.IO.File]::ReadAllText((Join-Path $package 'README.md'))
+$contributing = [System.IO.File]::ReadAllText((Join-Path $package 'CONTRIBUTING.md'))
 $checks = [ordered]@{}
 $failures = New-Object System.Collections.Generic.List[string]
 
@@ -85,6 +87,34 @@ foreach ($record in $skillRecords) {
     if ($record.source_id -ne 'project' -and $sourceIds -notcontains [string]$record.source_id) { $skillFailures.Add("$name references unknown source") }
 }
 Add-Check 'skill_relationships_match_lock_and_docs' ($skillFailures.Count -eq 0) ($skillFailures -join '; ')
+
+$apacheSkill = @($skillRecords | Where-Object { $_.name -eq 'security-best-practices' -and $_.source_id -eq 'openai-skills' -and $_.kind -eq 'adapted' })
+$expectedModifiedFiles = @(
+    'SKILL.md',
+    'references/javascript-express-web-server-security.md',
+    'references/javascript-general-web-frontend-security.md',
+    'references/javascript-typescript-react-web-frontend-security.md',
+    'references/python-django-web-server-security.md'
+)
+$apacheNoticesValid = $apacheSkill.Count -eq 1 -and (Test-SameSet @($apacheSkill[0].modified_files) $expectedModifiedFiles)
+if ($apacheNoticesValid) {
+    foreach ($relative in $expectedModifiedFiles) {
+        $content = [System.IO.File]::ReadAllText((Join-Path $package (Join-Path 'skills\security-best-practices' $relative)))
+        if (-not $content.Contains('Modified from') -or -not $content.Contains('49f948faa9258a0c61caceaf225e179651397431')) {
+            $apacheNoticesValid = $false
+            break
+        }
+    }
+}
+Add-Check 'apache_modification_notices_complete' $apacheNoticesValid 'Apache-2.0 modified-file records or notices are incomplete.'
+Add-Check 'license_and_trademark_disclosures_present' (
+    $readme.Contains('original MIT or Apache-2.0 license') -and
+    $readme.Contains('not affiliated with, sponsored by, or endorsed by OpenAI') -and
+    $readme.Contains('free, non-commercial community resource') -and
+    $readme.Contains('does not restrict the permissions granted to users by the MIT and applicable third-party licenses') -and
+    $notices.Contains('## Trademarks and affiliation') -and
+    $contributing.Contains('By submitting a contribution, you agree to license your contribution under the MIT License')
+) 'README, trademark, or contribution-license disclosure is missing.'
 
 $systemImagegen = @($provenance.system_capabilities | Where-Object { $_.name -eq 'imagegen' -and $_.redistributed -eq $false })
 Add-Check 'imagegen_recorded_but_not_redistributed' ($systemImagegen.Count -eq 1) 'imagegen system provenance is missing or marked redistributed.'

@@ -4,9 +4,14 @@ A skill-routed engineering workflow for using Codex Desktop as the single implem
 
 Give Codex a feature, bug, refactor, migration, security task, UI change, review, or release-preparation request. The workflow guides Codex through repository discovery, acceptance criteria, risk classification, skill selection, implementation, diff review, deterministic verification, correction, and delivery.
 
+> [!IMPORTANT]
+> This is an independent community project. It is not affiliated with, sponsored by, or endorsed by OpenAI. Codex, ChatGPT, and OpenAI are trademarks or registered trademarks of OpenAI.
+>
+> The project is maintained as a free, non-commercial community resource whose purpose is to help people use Codex for structured software-engineering work. It does not sell access to Codex or provide a paid service. This statement describes the maintainers' purpose; it does not restrict the permissions granted to users by the MIT and applicable third-party licenses.
+
 ## Status
 
-Version `0.2.0` is the current public release candidate. Package validation, installation, rollback, and the end-to-end example pass locally on Windows PowerShell. Publication remains gated on a passing GitHub-hosted CI run for the release commit. The project and redistributed upstream material are MIT-licensed with attribution preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Version `0.2.1` is the next public release candidate. Package validation, installation, rollback, and the end-to-end example pass locally on Windows PowerShell. Publication remains gated on a passing GitHub-hosted CI run for the release commit. Original project material is MIT-licensed. Redistributed third-party material remains subject to its original MIT or Apache-2.0 license, with attribution preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Core model
 
@@ -77,6 +82,8 @@ Thirteen additional capabilities remain optional: `make-interfaces-feel-better`,
 - Permission to write to the user's Codex instructions and personal skills directories
 
 No API key, multi-agent runtime, Docker environment, or external model worker is required.
+
+New users can follow [Getting Started](docs/GETTING_STARTED.md) for account requirements, download options, installation behavior, first use, and rollback.
 
 ## Install
 
@@ -249,7 +256,7 @@ Security depends on the combination of instructions, skill scope, Codex permissi
 
 See [PUBLICATION_CHECKLIST.md](docs/PUBLICATION_CHECKLIST.md). Do not publish a release until the first GitHub-hosted CI run and the first end-to-end example are complete.
 
-Release notes for version `0.2.0` are available in [RELEASE_NOTES_0.2.0.md](docs/RELEASE_NOTES_0.2.0.md).
+Release notes for version `0.2.1` are available in [RELEASE_NOTES_0.2.1.md](docs/RELEASE_NOTES_0.2.1.md).
 
 ## Contributing and support
 

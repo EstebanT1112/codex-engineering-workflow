@@ -2,7 +2,7 @@
   "schema_version": 1,
   "distribution": {
     "name": "codex-engineering-workflow",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "created_at": "2026-09-04",
     "publication_status": "RELEASE_READY",
     "license": "MIT",
@@ -137,7 +137,14 @@
       "name": "security-best-practices",
       "kind": "adapted",
       "source_id": "openai-skills",
-      "upstream_path": "skills/.curated/security-best-practices"
+      "upstream_path": "skills/.curated/security-best-practices",
+      "modified_files": [
+        "SKILL.md",
+        "references/javascript-express-web-server-security.md",
+        "references/javascript-general-web-frontend-security.md",
+        "references/javascript-typescript-react-web-frontend-security.md",
+        "references/python-django-web-server-security.md"
+      ]
     },
     {
       "name": "shadcn",

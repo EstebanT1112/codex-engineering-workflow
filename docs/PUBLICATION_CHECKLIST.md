@@ -24,14 +24,14 @@
 - Bug-report, feature-request, and pull-request templates are included.
 - Editor and Git text rules preserve UTF-8 and LF endings, including PowerShell scripts covered by the distribution lock.
 - A dependency-free Python feature records routing, RED/GREEN evidence, diff review, and reproducible deterministic verification.
-- Release `0.2.0` has a machine-readable manifest and a dated changelog section.
+- Release `0.2.1` has a machine-readable manifest and a dated changelog section.
 - The first GitHub-hosted validation passed for release-ready metadata commit `a959ae1`.
-- GitHub release notes for version `0.2.0` are prepared in `docs/RELEASE_NOTES_0.2.0.md`.
+- GitHub release notes for version `0.2.1` are prepared in `docs/RELEASE_NOTES_0.2.1.md`.
 - A reusable request template explains how to give Codex objectives, acceptance criteria, constraints, verification needs, and approval boundaries.
 
 ## Required before publishing
 
-- Confirm that the exact commit tagged `v0.2.0` has a passing GitHub-hosted validation.
+- Confirm that the exact commit tagged `v0.2.1` has a passing GitHub-hosted validation.
 - Review repository description, topics, and final GitHub release notes.
 
 ## Optional after the first release

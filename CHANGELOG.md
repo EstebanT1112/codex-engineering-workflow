@@ -4,7 +4,17 @@ This file records user-visible changes to Codex Engineering Workflow.
 
 ## Unreleased
 
+## [0.2.1] - 2026-09-09
+
 ### Added
+
+- A getting-started guide covering account requirements, installation contents, first use, conflicts, approvals, and rollback.
+
+### Changed
+
+- Clarified that redistributed material retains its original MIT or Apache-2.0 license.
+- Added explicit Apache-2.0 modification notices, an independent-project trademark disclaimer, and contribution licensing terms.
+- Documented the project's free, non-commercial community purpose while preserving all permissions granted by its open-source licenses.
 
 ## [0.2.0] - 2026-09-09
 

@@ -2,6 +2,8 @@
 
 Version 0.2.0 is the first public release of Codex Engineering Workflow, a skill-routed process for completing repository work in Codex Desktop with one write owner and fresh verification before delivery.
 
+This is an independent community project. It is not affiliated with, sponsored by, or endorsed by OpenAI.
+
 ## Highlights
 
 - A request-to-delivery workflow covering repository discovery, acceptance criteria, risk, planning, implementation, review, correction, verification, and delivery.

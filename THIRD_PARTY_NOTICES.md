@@ -78,6 +78,8 @@ Included material: `supabase-postgres-best-practices` as a reviewed copy with Co
 
 Included material: `security-best-practices`, adapted to the package's autonomous engineering workflow. Its complete upstream license is retained at `skills/security-best-practices/LICENSE.txt`.
 
+The local `SKILL.md` carries an explicit modification notice. Four reference files also carry notices because trailing whitespace was normalized for this distribution. Other files in the redistributed skill are content-identical to the pinned source after line-ending normalization.
+
 ## Superpowers
 
 - Repository: <https://github.com/obra/superpowers>
@@ -117,3 +119,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## Trademarks and affiliation
+
+This is an independent community project. It is not affiliated with, sponsored by, or endorsed by OpenAI or the upstream projects identified above.
+
+The project is maintained as a free, non-commercial community resource to help people use Codex for structured software-engineering work. It does not sell access to Codex or provide a paid service. This purpose statement does not limit the permissions granted by the project's MIT license or the applicable third-party licenses.
+
+Codex, ChatGPT, and OpenAI are trademarks or registered trademarks of OpenAI. Supabase and other product or project names are the property of their respective owners. Names are used only to identify compatibility, provenance, or the source of redistributed material. No upstream trademark license or endorsement is claimed.
